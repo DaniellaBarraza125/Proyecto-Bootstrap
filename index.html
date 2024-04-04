@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bootstrap demo</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+  <body>
+    <nav class="text-bg-dark border-bottom border-body p-3">
+      <ul class="nav justify-content-end nav-pills">
+        <li class="nav-item">
+          <!-- EXTRA: hemos usado active, para marcar en que vista se encuentra el usuario -->
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./user.html">Link</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+        <div class="container col-4 py-3">
+          <form id="my-form" class="was-validated" ">
+              <h1>Add User</h1>
+              <div class="row mb-3">         
+                  <label for="name" class="form-label" >Name:</label>
+                  <input type="text" id="name" class="form-control" />
+              </div>
+              <div class="row mb-3"> 
+                  <label for="lastname" class="form-label" >LastName:</label>
+                  <!-- EXTRA: hemos usado la validacion de bootstrap, que funciona con el atributo required. -->
+                  <input type="text" id="lastname" class="form-control" required/>
+              </div>   
+              <div class="row mb-3">        
+                <label for="email" class="form-label" >Email:</label> 
+                <input type="text" id="email" class="form-control" />
+              </div>      
+              <div class="row mb-3">
+                  <label for="clave1" class="form-label" >Contraseña:</label>
+                  <input type="text" id="clave1" class="form-control" />
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text is-invalid">
+                    Debe tener min 10 caracteres, entre ellos mayusculas y simbolos
+                  </span>
+                </div>
+              </div>      
+              <div class="row mb-3">
+                <label for="clave2" class="form-label" >Repite contraseña:</label>
+                <input type="text" id="clave2" class="form-control"  />
+              </div>
+              <button  ton id="btn" type="submit" class="btn btn-primary">Submit</button>
+
+
+              
+          </form>
+          <div class="mt-2">
+
+            <div id="msg">      
+            </div>
+          </div>
+        </div>
+
+    
+        <script src="main.js"></script>
+  </body>
+  </html>
