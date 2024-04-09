@@ -26,9 +26,22 @@ const inputclave1 = document.getElementById('clave1');
 const inputclave2 = document.getElementById('clave2');
 const form = document.getElementById('my-form');
 const msgDiv = document.getElementById("msg");
-let listaUsuarios = [];
+let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || [];
+let maxId = 0;
 
-let userid = 1;
+//entrar en los usuarios para no sobreescribir
+for (let i = 0; i < listaUsuarios.length; i++) {
+  if (listaUsuarios[i].id > maxId) {
+    maxId = listaUsuarios[i].id;
+  }
+}
+
+let userid = maxId + 1;
+if (maxId > 0) {
+  userid = maxId + 1;
+} else {
+  userid = 1;
+}
 
 // Contraseña= pa!@#$%3
 
@@ -55,7 +68,7 @@ function onSubmit(e) {
         msgDiv.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert"> escribeee</div>`
         
           break;
-      case validarE === false:danger
+      case validarE === false:
         // alert("correo invaldo")
         msgDiv.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">correo invalido</div>`;
         break ;
@@ -82,13 +95,17 @@ function onSubmit(e) {
           
           msgDiv.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
           
-          Usuario registrado correctamente <br> User: ${userid} <br> Nombre: ${Usuarios.Nombre} <br> Apellido: ${Usuarios.Apellido}<br> Correo: ${Usuarios.Correo} <br> Mensaje ${Usuarios.Mensaje} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          Usuario registrado correctamente <br> User: ${userid} <br> Nombre: ${Usuarios.Nombre} <br> Apellido: ${Usuarios.Apellido}<br> Correo: ${Usuarios.Correo} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>`;
+          setTimeout(function () {
+            window.location.href = "./user.html";
+      }, 5000);
       }
+      
       
       setTimeout(function () {
           msgDiv.innerHTML = "";
-          }, 5000);    
+          }, 3000);    
 }
       form.addEventListener('submit',onSubmit)
 
