@@ -1,11 +1,8 @@
 (() => {
   'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
+Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
       if (!form.checkValidity()) {
         event.preventDefault()
@@ -33,14 +30,12 @@ let maxId = 0;
 for (let i = 0; i < listaUsuarios.length; i++) {
   if (listaUsuarios[i].id > maxId) {
     maxId = listaUsuarios[i].id;
-  }
-}
-
+  }}
 let userid = maxId + 1;
 if (maxId > 0) {
-  userid = maxId + 1;
+userid = maxId + 1;
 } else {
-  userid = 1;
+userid = 1;
 }
 
 // Contraseña= pa!@#$%3
